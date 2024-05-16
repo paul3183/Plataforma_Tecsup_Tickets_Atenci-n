@@ -1,0 +1,22 @@
+{% extends 'tecsup.html' %}
+
+{% block contenido %}
+    {% set grouped_tickets = tickets|groupby('area') %}
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {% for area, tickets_in_area in grouped_tickets %}
+            <div class="mb-4 bg-white p-4 rounded-md shadow-md">
+                <h2 class="text-xl font-bold mb-2">{{ area }}</h2>
+                <ul class="list-disc pl-4">
+                    {% for ticket in tickets_in_area %}
+                        <li class="mb-1">{{ ticket.numero }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
+    </div>
+    
+    <div class="mt-4 text-center mb-7">
+        <a href="/lista" class="text-blue-500 text-lg hover:underline">Volver al Inicio</a>
+    </div>
+{% endblock %}

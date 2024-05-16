@@ -1,0 +1,45 @@
+{% extends 'tecsup.html' %}
+
+{% block contenido %}
+<div class="bg-gray-100">
+
+    <div class="container mx-auto mt-8 p-6 bg-white rounded-md shadow-md">
+        <h1 class="text-5xl text-center">Genera un ticket para una atención personalizada</h1>
+    </div>
+    
+    <div class="container mx-auto mt-8 p-6 bg-white rounded-md shadow-md">
+        <form class="max-w-md mx-auto" action="/generar_ticket" method="post">
+
+            <div class="mb-4">
+                <h2 class="text-xl font-semibold mb-2 text-blue-700">Áreas disponibles:</h2>
+                <ul class="list-disc pl-4">
+                    <li>Secretaria Docente: SD</li>
+                    <li>Psicopedagogia: PS</li>
+                    <li>Desarrollo Profesional del Estudiante: DPE</li>
+                    <li>Grados y Titulos: GT</li>
+                    <li>Coordinación de Servicios Educativos: SE</li>
+                    <li>Biblioteca: B</li>
+                </ul>
+            </div>
+            
+            <label for="area" class="block text-gray-700 mb-2">Ingresa una opción:</label>
+            <input type="text" name="area" class="border border-gray-400 p-2 rounded-md w-full" required>
+            <button type="submit" class="bg-blue-700 text-white px-4 py-2 rounded-md mt-2 block mx-auto hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue">Generar Ticket</button>
+            
+            {% if message %}
+                <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mt-4">
+                    <strong class="font-bold">¡Hola!</strong>
+                    <span class="block sm:inline">{{ message }}</span>
+                </div>
+            {% endif %}
+        </form>
+
+        <p class="mt-4 text-center">
+            <a href="/" class="text-blue-500 text-lg  hover:underline">Volver a la página principal</a>
+            <span class="mx-4 text-gray-400">|</span>
+            <a href="{{url_for('lista')}}" class="text-blue-500 text-lg  hover:underline">Lista de tickets generados</a>
+        </p>
+    </div>
+
+</div>
+{% endblock %}

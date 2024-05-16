@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TECSUP</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+</head>
+<body class="bg-gray-100">
+    <div class="bg-blue-700 flex flex-col items-center">
+        <div class="w-1/4">
+            <img class="w-full" src="../static/img/TECSUP.png" alt="logo tecsup">
+        </div>
+        <div class="bg-blue-700 text-white p-8">
+            <h1 class="text-5xl text-center">Servicios Educativos</h1>
+        </div>
+    </div>
+   
+    <div class="text-center py-4 ">
+        <div class="flex justify-center space-x-4">
+            <a href="{{url_for('principal')}}" class="text-blue-500 text-lg hover:underline">Principal</a>
+            {% if current_user.is_authenticated %}
+                <a href="{{url_for('index')}}"class="text-blue-500 text-lg  hover:underline">Emisión Ticket</a>
+                <a href="{{url_for('salir')}}" class="text-blue-500 text-lg  hover:underline">Cerrar Sesión</a>
+            {% else %}
+                <a href="{{url_for('registrar')}}" class="text-blue-500 text-lg hover:underline">Registrar</a>
+                <a href="{{url_for('ingresar')}}" class="text-blue-500 text-lg  hover:underline">Ingresar</a>
+            {% endif %}
+        </div>
+    </div>
+
+    {% block contenido %}
+
+    {% endblock %}
+
+    <div class="max-w-4xl mx-auto mt-8 px-4 mb-10">
+
+        <footer class="mt-10 text-right text-gray-500">
+            <p>By: Paul Martin Ruiz Guardia</p>
+        </footer>
+    </div>
+</body>
+</html>

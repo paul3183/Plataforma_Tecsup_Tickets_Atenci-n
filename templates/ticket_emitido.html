@@ -1,0 +1,23 @@
+{% extends 'tecsup.html' %}
+{% block contenido %}
+<div class="bg-gray-100 p-8">
+
+    <div class="text-center max-w-2xl mx-auto bg-white p-6 rounded-md shadow-md">
+        <h1 class="text-4xl font-bold mb-4 text-center">¡{{ texto }}!</h1>
+        <h2 class="text-3xl font-semibold mb-4 text-center">{{area_nombre_completo}}</h2>
+        <p class="mb-4">Bienvenido, {{ usuario.nombre }} </p>
+        <p class="mb-4">Tu Ticket ha sido generado con éxito.</p>
+        <p class="mb-4">El tiempo de espera aproximado es de <span class="font-bold">{{ minutos }} minutos</span>.</p>
+        
+        <h3 class="text-xl font-bold mb-2">Personal Asignado</h3>
+        <p>Serás atendido por el profesor {{ profesor_nombre }}</p> 
+    </div>
+
+    <div class="text-center py-4 ">
+        <div class="flex justify-center space-x-4">
+            <a class="text-blue-500 text-lg  hover:underline" href="{{url_for('lista')}}">Lista de Tickets</a>
+            
+        </div>
+    </div>
+</div>
+{% endblock %}
