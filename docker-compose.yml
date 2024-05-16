@@ -1,9 +1,0 @@
-version: '3'
-
-services:
-  web:
-    build: .  # Construir la imagen desde el contexto actual (directorio actual)
-    ports:
-      - "5000:5000"  # Mapear el puerto 5000 del host al puerto 5000 del contenedor
-    expose:
-      - "5000"  # Exponer el puerto 5000 para permitir la comunicación entre contenedores
